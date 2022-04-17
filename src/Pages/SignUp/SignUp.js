@@ -65,9 +65,6 @@ const SignUp = () => {
     const createUser = event => {
         event.preventDefault()
         createUserWithEmailAndPassword(userInfo.email, userInfo.password)
-        // toast.error('Here is your toast.', {id: 'toast'})
-        // toast.success('Here is your toast.', {id: 'toast2'})
-
     }
     
     const navigate = useNavigate()
@@ -89,13 +86,16 @@ const SignUp = () => {
 
                 <label htmlFor="email">Email</label>
                 <input onChange={emailHandler} type="email" name="email" id="2" />
-                <p className='text-danger'>{errors.emailError}</p>
+                {/* <p className='text-danger'>{errors.emailError}</p> */}
+                {errors?.emailError && <p className='text-danger fw-bold ms-2'>{errors.emailError}</p>}
                 <label htmlFor="password">Password</label>
                 <input onChange={passwordHandler} type="password" name="password" id="3" />
-                <p className='text-danger'>{errors.passwordError}</p>
+                {/* <p className='text-danger'>{errors.passwordError}</p> */}
+                {errors?.passwordError && <p className='text-danger fw-bold ms-2'>{errors.passwordError}</p> }
                 <label htmlFor="password">Confirm Password</label>
                 <input onChange={confirmPassword} type="password" name="password" id="4" />
-                <p className='text-danger'>{errors.confirmPasswordError}</p>
+                {/* <p className='text-danger'>{errors.confirmPasswordError}</p> */}
+                {errors?.confirmPasswordError && <p className='text-danger fw-bold ms-2'>{errors.confirmPasswordError}</p>}
                 <input className='submit-btn' type="submit" value="SIGNUP" />
                 
 
