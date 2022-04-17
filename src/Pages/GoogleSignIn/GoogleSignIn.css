@@ -1,0 +1,12 @@
+.line-container{
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    width: 50%;
+}
+.left-line, .right-line{
+    height: 1px;
+    width: 100%;
+    background-color: black;
+    
+}

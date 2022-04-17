@@ -3,6 +3,7 @@ import { auth } from '../../firebase.init';
 import './SignUp.css'
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
+import toast from 'react-hot-toast';
 const SignUp = () => {
     const [userInfo, setUserInfo] = useState({
         name:"", 
@@ -64,6 +65,8 @@ const SignUp = () => {
     const createUser = event => {
         event.preventDefault()
         createUserWithEmailAndPassword(userInfo.email, userInfo.password)
+        // toast.error('Here is your toast.', {id: 'toast'})
+        // toast.success('Here is your toast.', {id: 'toast2'})
 
     }
     
@@ -72,6 +75,7 @@ const SignUp = () => {
     useEffect(()=>{
         if(user){
             navigate('/')
+            toast.success('SignUp successfull', {id: "toast-signup"})
         }
     },[user])
 
@@ -92,7 +96,7 @@ const SignUp = () => {
                 <label htmlFor="password">Confirm Password</label>
                 <input onChange={confirmPassword} type="password" name="password" id="4" />
                 <p className='text-danger'>{errors.confirmPasswordError}</p>
-                <input type="submit" value="SigUp" />
+                <input className='submit-btn' type="submit" value="SIGNUP" />
                 
 
                 <p className=''>Already have an account? <span style={{ cursor: 'pointer' }} onClick={()=>navigate('/login')} className='text-danger'>Please Login</span></p>

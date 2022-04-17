@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
-import { useNavigate } from 'react-router-dom';
+import toast from 'react-hot-toast';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { auth } from '../../firebase.init';
-import './Login.css'
+import GoogleSignIn from '../GoogleSignIn/GoogleSignIn';
 
 const Login = () => {
     const [
@@ -52,28 +53,43 @@ const Login = () => {
     const signIn = event =>{
         event.preventDefault()
         signInWithEmailAndPassword(userInfo.email, userInfo.password)
+        if(userInfo.email === ''){
+            setUserInfo({...userInfo, email: event.target.value})
+            setErrors({...errors, emailError:"Email Required"})
+        }
+        if(userInfo.password === ''){
+            setUserInfo({...userInfo, password: event.target.value})
+            setErrors({...errors, passwordError: "Password Required"})
+        }
     }
 
+    const location = useLocation()
+    const from = location?.state?.from?.pathname || '/'
     const navigate = useNavigate()
     useEffect(()=>{
         if(user){
-            navigate('/')
+            navigate(from, {replace: true})
+            toast.success('Welcome', {id: 'login'})
         }
     },[user])
 
     return (
         <div>
-            <h3>this is Login</h3>
+            <h3 className='text-center mt-3'>LOGIN</h3>
             <form onSubmit={signIn} className='form'>
                 <label htmlFor="email">Email</label>
                 <input onChange={emailHandler} type="email" name="email" id="2" />
+                {errors.emailError && <p className='text-danger fw-bold'>{errors.emailError}</p>}
 
                 <label htmlFor="password">Password</label>
                 <input onChange={passwordHandler} type="password" name="password" id="3" />
-
-                <input type="submit" value="LOGIN" />
-                <p className=''>Already have an account? <span style={{ cursor: 'pointer' }} className='text-danger'>Please Login</span></p>
+                {errors.passwordError && <p className='text-danger fw-bold'>{errors.passwordError}</p>}
+                <input className='submit-btn' type="submit" value="LOGIN" />
+                
+                <p className='fw-bold mt-2'>New to Aesthetic? <Link to='/signup' className='text-secondary fw-normal'>Please SignUp</Link></p>
+                {error?.message.includes('Firebase: Error (auth/invalid-email).') && <p className='text-danger fw-bold'>Invalid User</p>}
             </form>
+            <GoogleSignIn></GoogleSignIn>
         </div>
     );
 };
