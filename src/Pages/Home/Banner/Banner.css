@@ -1,0 +1,49 @@
+
+
+
+
+.banner{
+    background-image: url(../../../images/Banner.jpg);
+    background-position: center center;
+    background-size: cover;
+    min-height: 100%;
+    padding: 2px;
+    
+    
+}
+.banner-items{
+    /* border: 2px solid yellow; */
+    margin-left: 5%;
+    color: white;
+    width: 50%;
+}
+
+.banner-button{
+    display: inline-block;
+    background-color: white;
+    text-transform: uppercase;
+    border: none;
+    text-decoration: none;
+    color: black;
+    border-radius: 50px;
+    margin-top: 30px;
+    padding: 8px 18px;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+.banner-button:hover{
+    background-color: orangered;
+    color: white;
+}
+.banner-info{
+    font-size: 1.2em;
+}
+
+.title{
+    font-size: 5em;
+    letter-spacing: .07em;
+    font-family: 'roboto';
+    padding-top: 5%;
+
+}
