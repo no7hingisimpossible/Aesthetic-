@@ -95,7 +95,7 @@ const SignUp = () => {
                 <input type="submit" value="SigUp" />
                 
 
-                <p className=''>Already have an account? <span style={{ cursor: 'pointer' }} className='text-danger'>Please Login</span></p>
+                <p className=''>Already have an account? <span style={{ cursor: 'pointer' }} onClick={()=>navigate('/login')} className='text-danger'>Please Login</span></p>
             </form> 
             
         </div>
