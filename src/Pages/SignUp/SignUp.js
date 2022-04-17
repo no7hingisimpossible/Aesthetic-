@@ -21,7 +21,7 @@ const SignUp = () => {
         user,
         loading,
         error,
-      ] = useCreateUserWithEmailAndPassword(auth);
+      ] = useCreateUserWithEmailAndPassword(auth, {sendEmailVerification : true });
 
     const nameHandler = event =>{
         setUserInfo({...userInfo, name: event.target.value})
