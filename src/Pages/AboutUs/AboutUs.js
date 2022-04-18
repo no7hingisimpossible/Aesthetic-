@@ -13,7 +13,7 @@ const AboutUs = () => {
                     <h3>Fahim Madani</h3>
                     <p></p>
                     <p>There is a  great quote which I think is really underrated and unappreciated. The quote goes like <br /> "People overestimate what they can do in a year but underestimate what they can do in 10 years." </p>
-                    <p>In reference to that quote I have set up my goal. Be it become a developer or anything the goal is to  stick to it no matter what and stay consistent through out struggles and pains. </p>
+                    <p>In reference to the quote there is one thing to learn. CONSISTENCY. Be it become a developer or anything the goal is to consistently learn and try no matter what and stay patient through out the rocky journeys. </p>
                 </div>
             </div>
         </div>
