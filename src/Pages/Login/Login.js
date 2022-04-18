@@ -86,11 +86,11 @@ const Login = () => {
             <h3 className='text-center mt-3'>LOGIN</h3>
             <form onSubmit={signIn} className='form'>
                 <label htmlFor="email">Email</label>
-                <input onChange={emailHandler} type="email" name="email" id="2" />
+                <input onChange={emailHandler} type="email" required name="email" id="2" />
                 {errors.emailError && <p className='text-danger fw-bold'>{errors.emailError}</p>}
 
                 <label htmlFor="password">Password</label>
-                <input onChange={passwordHandler} type="password" name="password" id="3" />
+                <input onChange={passwordHandler} type="password" required name="password" id="3" />
                 {errors.passwordError && <p className='text-danger fw-bold'>{errors.passwordError}</p>}
                 <input className='submit-btn' type="submit" value="LOGIN" />
                 

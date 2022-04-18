@@ -82,18 +82,18 @@ const SignUp = () => {
             <h2 className='text-center text-primary mt-3'>Please Register</h2>
             <form onSubmit={createUser} className='form'>
                 <label htmlFor="name">Name</label>
-                <input onChange={nameHandler} type="text" name="name" id="1" />
+                <input onChange={nameHandler} type="text" name="name"  id="1" />
 
                 <label htmlFor="email">Email</label>
-                <input onChange={emailHandler} type="email" name="email" id="2" />
+                <input onChange={emailHandler} type="email" name="email" required id="2" />
                 {/* <p className='text-danger'>{errors.emailError}</p> */}
                 {errors?.emailError && <p className='text-danger fw-bold ms-2'>{errors.emailError}</p>}
                 <label htmlFor="password">Password</label>
-                <input onChange={passwordHandler} type="password" name="password" id="3" />
+                <input onChange={passwordHandler} type="password" name="password" required id="3" />
                 {/* <p className='text-danger'>{errors.passwordError}</p> */}
                 {errors?.passwordError && <p className='text-danger fw-bold ms-2'>{errors.passwordError}</p> }
                 <label htmlFor="password">Confirm Password</label>
-                <input onChange={confirmPassword} type="password" name="password" id="4" />
+                <input onChange={confirmPassword} type="password" name="password" required id="4" />
                 {/* <p className='text-danger'>{errors.confirmPasswordError}</p> */}
                 {errors?.confirmPasswordError && <p className='text-danger fw-bold ms-2'>{errors.confirmPasswordError}</p>}
                 <input className='submit-btn' type="submit" value="SIGNUP" />
