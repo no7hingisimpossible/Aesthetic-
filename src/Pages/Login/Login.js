@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import toast from 'react-hot-toast';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { auth } from '../../firebase.init';
@@ -73,6 +73,14 @@ const Login = () => {
         }
     },[user])
 
+
+    const [sendPasswordResetEmail, sending, error2] = useSendPasswordResetEmail(auth);
+
+    const resetPassword = ()=>{
+        sendPasswordResetEmail(userInfo.email)
+        toast.success('Email sent', {id: "login666"})
+    }
+
     return (
         <div>
             <h3 className='text-center mt-3'>LOGIN</h3>
@@ -86,8 +94,11 @@ const Login = () => {
                 {errors.passwordError && <p className='text-danger fw-bold'>{errors.passwordError}</p>}
                 <input className='submit-btn' type="submit" value="LOGIN" />
                 
-                <p className='fw-bold mt-2'>New to Aesthetic? <Link to='/signup' className='text-secondary fw-normal'>Please SignUp</Link></p>
+                <p className='fw-bold mb-0 mt-2'>New to Aesthetic? <Link to='/signup' className='text-secondary fw-normal'>Please SignUp</Link></p>
+                <p className='fw-bold'>Forgot Password?<button className='btn-link btn my-0' onClick={resetPassword}>Reset Password</button></p>
                 {error?.message.includes('Firebase: Error (auth/invalid-email).') && <p className='text-danger fw-bold'>Invalid User</p>}
+                {error?.message.includes('Firebase: Error (auth/wrong-password).') && <p className='text-danger fw-bold'>Password doesnt match</p>}
+                
             </form>
             <GoogleSignIn></GoogleSignIn>
         </div>
