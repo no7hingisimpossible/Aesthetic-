@@ -8,64 +8,61 @@ import GoogleSignIn from '../GoogleSignIn/GoogleSignIn';
 const Login = () => {
     const location = useLocation()
     const navigate = useNavigate()
-    // const [
-    //     signInWithEmailAndPassword,
-    //     user,
-    //     loading,
-    //     error,
-    //   ] = useSignInWithEmailAndPassword(auth);
+    const [
+        signInWithEmailAndPassword,
+        user,
+        loading,
+        error,
+      ] = useSignInWithEmailAndPassword(auth);
     
-    //   const [userInfo, setUserInfo] = useState({
-    //     email:"", 
-    //     password:""
-    // })
-    // const [errors, setErrors] = useState({
-    //     emailError:"", 
-    //     passwordError:""
+      const [userInfo, setUserInfo] = useState({
+        email:"", 
+        password:""
+    })
+    const [errors, setErrors] = useState({
+        emailError:"", 
+        passwordError:""
     
-    // })  
+    })  
 
-    // const emailHandler = event =>{
-    //     const emailRegex = /\S+@\S+\.\S+/;
-    //     const validEmail = emailRegex.test(event.target.value)
+    const emailHandler = event =>{
+        const emailRegex = /\S+@\S+\.\S+/;
+        const validEmail = emailRegex.test(event.target.value)
         
-    //     if(validEmail){
-    //         setUserInfo({...userInfo, email: event.target.value})
-    //         setErrors({...errors, emailError:""})
-    //     }else{
-    //         setErrors({...errors, emailError:"Invalid Email"})
-    //         setUserInfo({...userInfo, email:""})
-    //     }
+        if(validEmail){
+            setUserInfo({...userInfo, email: event.target.value})
+            setErrors({...errors, emailError:""})
+        }else{
+            setErrors({...errors, emailError:"Invalid Email"})
+            setUserInfo({...userInfo, email:""})
+        }
         
-    // }
+    }
 
-    // const passwordHandler = event =>{
-    //     const passwordRegex = /^(?=.*\p{Ll})(?=.*\p{Lu})(?=.*[\d|@#$!%*?&])[\p{L}\d@#$!%*?&]{6,36}$/gmu
-    //     const validPassword = passwordRegex.test(event.target.value)
-    //     if(validPassword){
-    //         setErrors({...errors, passwordError: ""})
-    //         setUserInfo({...userInfo, password: event.target.value})
-    //     }else{
-    //         setErrors({...errors, passwordError: 'Invalid Password'})
-    //         setUserInfo({...userInfo, password: ""})
-    //     }
+    const passwordHandler = event =>{
+        const passwordRegex = /^(?=.*\p{Ll})(?=.*\p{Lu})(?=.*[\d|@#$!%*?&])[\p{L}\d@#$!%*?&]{6,36}$/gmu
+        const validPassword = passwordRegex.test(event.target.value)
+        if(validPassword){
+            setErrors({...errors, passwordError: ""})
+            setUserInfo({...userInfo, password: event.target.value})
+        }else{
+            setErrors({...errors, passwordError: 'Invalid Password'})
+            setUserInfo({...userInfo, password: ""})
+        }
         
-    // }
-    // console.log(userInfo.email, userInfo.password);
+    }
+    console.log(userInfo.email, userInfo.password);
 
-    // const signIn = event =>{
-    //     event.preventDefault()
-    //     signInWithEmailAndPassword(userInfo.email, userInfo.password)
+    const signIn = event =>{
+        event.preventDefault()
+        signInWithEmailAndPassword(userInfo.email, userInfo.password)
         
-    // }
+    }
 
     
     
     const from = location?.state?.from?.pathname || '/'
-    // if(user){
-    //     navigate(from, {replace: true})
-    //     toast.success('Welcome', {id: 'login'})
-    // }
+    
     useEffect(()=>{
         if(user){
             navigate(from, {replace: true})
@@ -83,19 +80,19 @@ const Login = () => {
 
     return (
         <div>
-            <h3 onSubmit={signIn} className='text-center mt-3'>LOGIN</h3>
-            <form  className='form'>
+            <h3 className='text-center mt-3'>LOGIN</h3>
+            <form onSubmit={signIn} className='form'>
                 <label htmlFor="email">Email</label>
-                <input onChange={emailHandler} type="email" required name="email" id="2" />
+                <input onChange={emailHandler} type="email" name="email" id="2" />
                 {errors.emailError && <p className='text-danger fw-bold'>{errors.emailError}</p>}
 
                 <label htmlFor="password">Password</label>
-                <input onChange={passwordHandler} type="password" required name="password" id="3" />
+                <input onChange={passwordHandler} type="password" name="password" id="3" />
                 {errors.passwordError && <p className='text-danger fw-bold'>{errors.passwordError}</p>}
                 <input className='submit-btn' type="submit" value="LOGIN" />
                 
                 <p className='fw-bold mb-0 mt-2'>New to Aesthetic? <Link to='/signup' className='text-secondary fw-normal'>Please SignUp</Link></p>
-                <p className='fw-bold'>Forgot Password?<button className='btn-link btn my-0' onClick={resetPassword}>Reset Password</button></p>
+                {/* <p className='fw-bold'>Forgot Password?<button className='btn-link btn my-0' onClick={resetPassword}>Reset Password</button></p> */}
                 {error?.message.includes('Firebase: Error (auth/invalid-email).') && <p className='text-danger fw-bold'>Invalid User</p>}
                 {error?.message.includes('Firebase: Error (auth/wrong-password).') && <p className='text-danger fw-bold'>Password doesnt match</p>}
                 
