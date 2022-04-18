@@ -47,3 +47,12 @@
     padding-top: 5%;
 
 }
+
+@media screen and (max-width: 576px) {
+    .title{
+        font-size: 3em;
+    }
+    .banner-info{
+        font-size: 1rem;
+    }
+}
