@@ -20,7 +20,7 @@
     width: 100%;
 }
 .review-card{
-    width: 500px;
+   max-width: 500px;
     margin: 0 auto;
 }
 

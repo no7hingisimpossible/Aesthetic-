@@ -7,3 +7,7 @@
     color: white;
     padding-top: 20px;
 }
+@media screen and (max-width: 576px) {
+    .opening-hours{}
+    
+}

@@ -17,9 +17,9 @@ const Footer = () => {
                     <p>Twitter</p>
                     <p>Instagram</p>
                 </div>
-                <div className='text-center w-75 mx-auto p-2 px-3'>
+                <div className=' text-center w-75 mx-auto p-2 px-3'>
                     <h5>Opening Hours</h5>
-                    <div className='d-flex justify-content-between'>
+                    <div className='d-flex flex-sm-column  justify-content-between'>
                         <p>Sunday</p>
                         <p>09:00-17:00</p>
                     </div>
