@@ -25,7 +25,7 @@ function App() {
         <Route path='/blogs' element={<Blogs></Blogs>}></Route>
         <Route path='/aboutus' element={<AboutUs></AboutUs>}></Route>
         <Route path='/service/:id' element={<RequireAuth><Checkout></Checkout></RequireAuth>}></Route>
-        <Route path='*' element={<PageNotFound></PageNotFound>}></Route>
+        {/* <Route path='*' element={<PageNotFound></PageNotFound>}></Route> */}
       </Routes>
       <Footer></Footer>
     </div>

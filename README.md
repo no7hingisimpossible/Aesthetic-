@@ -9,7 +9,7 @@ github : https://github.com/programming-hero-web-course-4/independent-service-pr
 I have included Blogs, AboutUs, and login button inside the navbar. Through out the whole project 
 I have used both bootstrap and vanilla css where I saw fit. 
 <li>Clicking on the page title will redirect you to the homepage</li>
-<li>Also tried setting up activelinks</li>
+
 <li>On the homepage, I have added navbar, a static image as my banner, a section which includes services, reviews and a footer</li>
 <li>There is a button on the banner which upon clicked will take you to the service section</li>
 <li>I have used requireAuth to make the checkout route private with firebase hooks.</li>
