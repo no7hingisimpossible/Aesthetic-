@@ -9,6 +9,7 @@ import RequireAuth from './Pages/RequireAuth/RequireAuth';
 import toast, { Toaster } from 'react-hot-toast';
 import Footer from './Pages/Shared/Footer/Footer';
 import Blogs from './Pages/Blogs/Blogs';
+import AboutUs from './Pages/AboutUs/AboutUs';
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
         <Route path='/signup' element={<SignUp></SignUp>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/blogs' element={<Blogs></Blogs>}></Route>
+        <Route path='/aboutus' element={<AboutUs></AboutUs>}></Route>
         <Route path='/service/:id' element={<RequireAuth><Checkout></Checkout></RequireAuth>}></Route>
         {/* <Route path='/checkout' element={<Checkout></Checkout>}></Route> */}
       </Routes>
