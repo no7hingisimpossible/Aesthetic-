@@ -18,4 +18,3 @@ I have used both bootstrap and vanilla css where I saw fit.
 <li>On my blogs page I have attempted to answer a few questions.</li>
 <li>On the About us page I have written about my mindset more than I have written about myself, hope it will be accepted nevertheless.</li>
 <li>The checkout page to your disappoinment is empty.</li>
-

@@ -7,7 +7,11 @@
     color: white;
     padding-top: 20px;
 }
-@media screen and (max-width: 576px) {
-    .opening-hours{}
-    
+.subscribe-btn{
+    border: none;
+    background-color: gold;
+    padding: 2px 16px;
+    margin-top: 10px;
+    color: black;
+    font-weight: 600;
 }

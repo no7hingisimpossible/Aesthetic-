@@ -4,6 +4,7 @@ import toast from 'react-hot-toast';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { auth } from '../../firebase.init';
 import GoogleSignIn from '../GoogleSignIn/GoogleSignIn';
+import './Login.css'
 
 const Login = () => {
     const [
@@ -95,7 +96,7 @@ const Login = () => {
                 <input className='submit-btn' type="submit" value="LOGIN" />
                 
                 <p className='fw-bold mb-0 mt-2'>New to Aesthetic? <Link to='/signup' className='text-secondary fw-normal'>Please SignUp</Link></p>
-                <p className='fw-bold'>Forgot Password?<button className='btn-link btn my-0' onClick={resetPassword}>Reset Password</button></p>
+                <p className='fw-bold'>Forgot Password?<button className='reset-btn' onClick={resetPassword}>Reset Password</button></p>
                 {error?.message.includes('Firebase: Error (auth/invalid-email).') && <p className='text-danger fw-bold'>Invalid User</p>}
                 {error?.message.includes('Firebase: Error (auth/wrong-password).') && <p className='text-danger fw-bold'>Password doesnt match</p>}
                 

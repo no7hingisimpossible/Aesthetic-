@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { Link, useLocation } from 'react-router-dom';
+import { NavLink, Link, useLocation } from 'react-router-dom';
 import { auth } from '../../../firebase.init';
 import { signOut } from 'firebase/auth';
 import './Header.css'
@@ -16,12 +16,15 @@ const Header = () => {
             }
         className='nav-container sticky-top'>
             <div>
-            <Link to='/'><span className='logo-name'>AESTHETIC</span></Link>
+            <NavLink className='link' to='/'><span className='logo-name'>AESTHETIC</span></NavLink>
             </div>
             <div>
-                <Link to='/blogs' >BLOGS</Link>
-                <Link className='ms-4' to='/aboutus'>ABOUT US</Link>
-                {user ? <button onClick={()=> signOut(auth) } className='signup-btn'>Signout</button> :<button className='signup-btn'><Link to='/login' >LOGIN</Link></button>}
+                <NavLink className={({isActive})=> isActive ? "active-link" : "link"} to='/blogs' >BLOGS</NavLink>
+                <NavLink className={({isActive})=> isActive ? "active-link" : "link"} to='/aboutus'>ABOUT US</NavLink>
+                {user ? 
+                <NavLink onClick={()=> signOut(auth) } className=''>Signout</NavLink> :
+                <NavLink className={({isActive})=> isActive ? "active-link" : "link"} to='/login' >LOGIN</NavLink>
+                }
             </div>
         </div>
     );

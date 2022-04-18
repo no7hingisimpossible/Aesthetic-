@@ -34,6 +34,7 @@
 }
 .banner-button:hover{
     background-color: orangered;
+    transition: background-color ease-in-out 300ms;
     color: white;
 }
 .banner-info{

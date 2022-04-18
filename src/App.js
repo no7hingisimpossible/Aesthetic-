@@ -10,6 +10,7 @@ import toast, { Toaster } from 'react-hot-toast';
 import Footer from './Pages/Shared/Footer/Footer';
 import Blogs from './Pages/Blogs/Blogs';
 import AboutUs from './Pages/AboutUs/AboutUs';
+import PageNotFound from './Pages/PageNotFound/PageNotFound';
 
 
 function App() {
@@ -24,7 +25,7 @@ function App() {
         <Route path='/blogs' element={<Blogs></Blogs>}></Route>
         <Route path='/aboutus' element={<AboutUs></AboutUs>}></Route>
         <Route path='/service/:id' element={<RequireAuth><Checkout></Checkout></RequireAuth>}></Route>
-        {/* <Route path='/checkout' element={<Checkout></Checkout>}></Route> */}
+        <Route path='*' element={<PageNotFound></PageNotFound>}></Route>
       </Routes>
       <Footer></Footer>
     </div>

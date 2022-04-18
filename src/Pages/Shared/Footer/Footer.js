@@ -9,7 +9,7 @@ const Footer = () => {
                     <h5>Subscribe Me</h5>
                     <p>Sign up to my newsletter to get the latest news and offers</p>
                     <input className='w-75' type="email" name="" id="" placeholder='Your Email'/>
-                    <button className='d-block btn mt-3'>Subscribe</button>
+                    <button className='subscribe-btn'>Subscribe</button>
                 </div>
                 <div className='text-center w-75 mx-auto p-2'>
                     <h5>Social</h5>
